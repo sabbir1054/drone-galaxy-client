@@ -22,19 +22,25 @@ const SideNav = () => {
               <Nav className="m-auto d-flex flex-column align-items-center">
                 <NavLink
                   to="/makeAdmin"
-                  className="text-decoration-none fw-normal my-3 text-light "
+                  className="text-decoration-none fw-normal my-3 text-light border-bottom"
                 >
                   Make Admin
                 </NavLink>
                 <NavLink
                   to="/manageAllOrders"
-                  className="text-decoration-none fw-normal my-3 text-light "
+                  className="text-decoration-none fw-normal my-3 text-light border-bottom"
                 >
                   Manage All Orders
                 </NavLink>
                 <NavLink
+                  to="/addProduct"
+                  className="text-decoration-none fw-normal my-3 text-light border-bottom"
+                >
+                  Add Product
+                </NavLink>
+                <NavLink
                   to="/manageAllProducts"
-                  className="text-decoration-none fw-normal my-3 text-light "
+                  className="text-decoration-none fw-normal my-3 text-light border-bottom"
                 >
                   Manage All Products
                 </NavLink>

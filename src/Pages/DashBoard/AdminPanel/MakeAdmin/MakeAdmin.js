@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import SideNav from "../SideNav";
 
 const MakeAdmin = () => {
+  const [users, setUsers] = useState([]);
+  //update order condition
+  const handleUpdate = (emailId) => {
+    fetch(`http://localhost:5000/users/${emailId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(users),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    handleUpdate(data.email);
+  };
 
   return (
     <Row className="w-100 g-0">
@@ -29,7 +51,8 @@ const MakeAdmin = () => {
                 placeholder="Enter Email For Make Admin"
                 {...register("email")}
                 className="w-50 py-2"
-              /> <br />
+              />{" "}
+              <br />
               <input
                 type="submit"
                 readOnly

@@ -16,6 +16,7 @@ import DashBoard from './Pages/DashBoard/DashBoard';
 import MakeAdmin from './Pages/DashBoard/AdminPanel/MakeAdmin/MakeAdmin';
 import ManageAllOrders from './Pages/DashBoard/AdminPanel/ManageAllOrders/ManageAllOrders';
 import ManageAllProducts from './Pages/DashBoard/AdminPanel/ManageProducts/ManageAllProducts';
+import AddProduct from './Pages/DashBoard/AdminPanel/ManageProducts/AddProduct';
 
 
 function App() {
@@ -53,6 +54,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/manageAllOrders">
             <ManageAllOrders></ManageAllOrders>
+          </PrivateRoute>
+          <PrivateRoute path="/addProduct">
+            <AddProduct></AddProduct>
           </PrivateRoute>
           <PrivateRoute path="/manageAllProducts">
             <ManageAllProducts></ManageAllProducts>
