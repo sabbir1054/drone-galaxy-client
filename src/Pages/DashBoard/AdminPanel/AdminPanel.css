@@ -1,0 +1,8 @@
+.admin-bg{
+    background-color: black;
+    background-image: url('https://i.ibb.co/k5WM0RS/bg-extra.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 150vh;
+}

@@ -1,10 +1,21 @@
 import React from 'react';
-
+import { Col, Container, Row } from 'react-bootstrap';
+import './AdminPanel.css'
+import SideNav from './SideNav';
 const AdminPanel = () => {
     return (
-        <div>
-            <h1>This is admin panel</h1>
-        </div>
+      
+        <Row className='w-100 g-0' >
+          <Col md="2" style={{ backgroundColor: "#212529" }}>
+            <SideNav></SideNav>
+          </Col>
+          <Col>
+            <div className="admin-bg">
+              
+            </div>
+          </Col>
+        </Row>
+    
     );
 };
 

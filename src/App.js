@@ -13,6 +13,9 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Purchase from './Pages/Purchase/Purchase';
 import Payment from './Pages/Payment/Payment';
 import DashBoard from './Pages/DashBoard/DashBoard';
+import MakeAdmin from './Pages/DashBoard/AdminPanel/MakeAdmin/MakeAdmin';
+import ManageAllOrders from './Pages/DashBoard/AdminPanel/ManageAllOrders/ManageAllOrders';
+import ManageAllProducts from './Pages/DashBoard/AdminPanel/ManageProducts/ManageAllProducts';
 
 
 function App() {
@@ -44,6 +47,15 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/dashboard">
             <DashBoard></DashBoard>
+          </PrivateRoute>
+          <PrivateRoute path="/makeAdmin">
+            <MakeAdmin></MakeAdmin>
+          </PrivateRoute>
+          <PrivateRoute path="/manageAllOrders">
+            <ManageAllOrders></ManageAllOrders>
+          </PrivateRoute>
+          <PrivateRoute path="/manageAllProducts">
+            <ManageAllProducts></ManageAllProducts>
           </PrivateRoute>
           <Route path="/*">
             <NoMatch></NoMatch>
