@@ -16,6 +16,7 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    
     registerNewUser(data.name, data.email, data.password);
     reset();
     history.push("/");

@@ -12,6 +12,7 @@ import NoMatch from './Pages/NoMatch/NoMatch';
 import Footer from './Pages/Shared/Footer/Footer';
 import Purchase from './Pages/Purchase/Purchase';
 import Payment from './Pages/Payment/Payment';
+import DashBoard from './Pages/DashBoard/DashBoard';
 
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/payment">
             <Payment></Payment>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard">
+            <DashBoard></DashBoard>
           </PrivateRoute>
           <Route path="/*">
             <NoMatch></NoMatch>

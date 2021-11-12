@@ -25,7 +25,7 @@ const useFirebase = () => {
     
     
   //register new user
-  const registerNewUser = (name, email, password) => {
+  const registerNewUser = (name, email, password, role) => {
     
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
@@ -52,7 +52,9 @@ const useFirebase = () => {
   };
 //saveUser database
   const saveUser = (email, displayName) => {
+  
     const user = { email, displayName };
+    
   axios
     .post("http://localhost:5000/users", user)
     .then(function (response) {

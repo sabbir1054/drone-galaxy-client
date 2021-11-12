@@ -36,25 +36,16 @@ const Header = () => {
                 Explore Our Galaxy
               </NavLink>
               <div className="d-md-flex justify-content-space-evenly ms-auto"></div>
-              
+
               {user.email ? (
                 <>
-                  <NavDropdown title="Dashboard" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Something
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                      Separated link
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  <NavLink to="/home">
+                  <NavLink
+                    to="/dashboard"
+                    className="text-decoration-none fw-normal mx-3 text-light"
+                  >
+                    Dashboard
+                  </NavLink>
+                  <NavLink to="/">
                     <button className="btn btn-warning mx-1" onClick={logOut}>
                       <i className="fas fa-sign-in-alt"></i> Log Out
                     </button>
