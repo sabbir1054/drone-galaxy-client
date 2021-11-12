@@ -1,0 +1,8 @@
+.get-bg {
+  background-image: url("https://i.ibb.co/k5WM0RS/bg-extra.png");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  padding: 20vh 0vh;
+}
