@@ -1,17 +1,33 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link,useLocation,useHistory } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 import PageBanner from "../HomePage/PageBanner/PageBanner";
 
 const Login = () => {
+   const location = useLocation();
+   const history = useHistory();
+   const redirect_uri = location.state?.from || "/home";
+  const {loginWithEmailPassword, user, setUser,setError} = useAuth();
     const {
       register,
       handleSubmit,
       formState: { errors },
     } = useForm();
-     const onSubmit = () => {
-       
+  const onSubmit = (data) => {
+       console.log(data);
+       loginWithEmailPassword(data.email, data.password)
+         .then((result) => {
+           const user = result.user;
+           setUser(user);
+           console.log(user);
+           setError("");
+           history.push(redirect_uri);
+         })
+         .catch((error) => {
+           setError(error.message);
+         });
      };
   return (
     <div>
