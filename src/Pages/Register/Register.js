@@ -1,21 +1,24 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import PageBanner from "../HomePage/PageBanner/PageBanner";
 
 const Register = () => {
-  const {registerNewUser} = useAuth();
+  const history = useHistory();
+  const { registerNewUser } = useAuth();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     registerNewUser(data.name, data.email, data.password);
+    reset();
+    history.push("/");
   };
   return (
     <div>

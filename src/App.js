@@ -10,6 +10,8 @@ import Header from './Pages/Shared/Header/Header';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import NoMatch from './Pages/NoMatch/NoMatch';
 import Footer from './Pages/Shared/Footer/Footer';
+import Purchase from './Pages/Purchase/Purchase';
+import Payment from './Pages/Payment/Payment';
 
 
 function App() {
@@ -30,12 +32,18 @@ function App() {
           <Route path="/register">
             <Register></Register>
           </Route>
-          <PrivateRoute path="/explore">
+          <Route path="/explore">
             <Explore></Explore>
+          </Route>
+          <PrivateRoute path="/purchases/:productId">
+            <Purchase></Purchase>
           </PrivateRoute>
-          <Route path='/*'> 
+          <PrivateRoute path="/payment">
+            <Payment></Payment>
+          </PrivateRoute>
+          <Route path="/*">
             <NoMatch></NoMatch>
-         </Route>
+          </Route>
         </Switch>
         <Footer></Footer>
       </BrowserRouter>

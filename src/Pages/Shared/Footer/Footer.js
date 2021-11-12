@@ -12,7 +12,7 @@ const Footer = () => {
                 <h3 className="display-5 fw-normal logo text-warning">
                   Drone Galaxy
                 </h3>
-                <p className="text-light">
+                <p className="text-light pe-5 ">
                   Creativity is at the heart of every dream. Every idea, every
                   groundbreaking leap that changes our world starts with the
                   vision of talented creators. At Drone Galaxy, we give these creators
@@ -24,7 +24,7 @@ const Footer = () => {
                   Follow Us On
                 </h3>
 
-                <Row className="d-flex justify-content-center align-items-center text-center">
+                <Row className="d-flex justify-content-center flex-column align-items-center text-center">
                   <Col md="3" className="my-2">
                     <a
                       href="https://www.linkedin.com/in/md-sabbir-hossain-1054/"

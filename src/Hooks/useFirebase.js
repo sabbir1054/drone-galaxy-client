@@ -1,3 +1,4 @@
+
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -7,8 +8,9 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router";
+
 import AuthInitialization from "../Firebase/AuthInit";
+import axios from "axios";
 
 AuthInitialization();
 
@@ -24,25 +26,42 @@ const useFirebase = () => {
     
   //register new user
   const registerNewUser = (name, email, password) => {
+    
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        
         const user = result.user;
         setUser(user);
-        updateProfile(auth.currentUser, {
+       updateProfile(auth.currentUser, {
           displayName: name,
         }).then(() => {
+          
           // Profile updated!
-            console.log(user);
+
+          //save user in database
+          saveUser(email, name);
+          
         });
       })
       .catch((error) => {
         setError(error.message);
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
-
+//saveUser database
+  const saveUser = (email, displayName) => {
+    const user = { email, displayName };
+  axios
+    .post("http://localhost:5000/users", user)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  };
     
     
   //Login with email and password
