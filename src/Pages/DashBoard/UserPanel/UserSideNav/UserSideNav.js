@@ -1,13 +1,12 @@
 import React from 'react';
-import { Container, Nav, Navbar,  } from 'react-bootstrap';
-
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-const SideNav = () => {
-      
+
+const UserSideNav = () => {
     return (
       <>
         <h3 className="text-center text-warning pt-2 pb-2 my-4 px-2 fw-normal">
-          Admin Panel
+          User Panel
         </h3>
         <Navbar bg="dark" variant="dark" expand="md">
           <Container className="d-flex flex-column">
@@ -15,29 +14,24 @@ const SideNav = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="m-auto d-flex flex-column align-items-center">
                 <NavLink
-                  to="/dashboard/makeAdmin"
+                  to="/dashboard/myOrders"
                   className="text-decoration-none fw-normal my-3 text-light border-bottom"
                 >
-                  Make Admin
+                  My Orders
                 </NavLink>
                 <NavLink
-                  to="/dashboard/manageAllOrders"
+                  to="/dashboard/feedback"
                   className="text-decoration-none fw-normal my-3 text-light border-bottom"
                 >
-                  Manage All Orders
+                 Add a FeedBack
                 </NavLink>
                 <NavLink
-                  to="/dashboard/addProduct"
+                  to="/dashboard/payment"
                   className="text-decoration-none fw-normal my-3 text-light border-bottom"
                 >
-                  Add Product
+                  Payment Procedure
                 </NavLink>
-                <NavLink
-                  to="/dashboard/manageAllProducts"
-                  className="text-decoration-none fw-normal my-3 text-light border-bottom"
-                >
-                  Manage All Products
-                </NavLink>
+                
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -46,4 +40,4 @@ const SideNav = () => {
     );
 };
 
-export default SideNav;
+export default UserSideNav;

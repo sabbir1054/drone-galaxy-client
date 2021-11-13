@@ -17,6 +17,9 @@ import MakeAdmin from './Pages/DashBoard/AdminPanel/MakeAdmin/MakeAdmin';
 import ManageAllOrders from './Pages/DashBoard/AdminPanel/ManageAllOrders/ManageAllOrders';
 import ManageAllProducts from './Pages/DashBoard/AdminPanel/ManageProducts/ManageAllProducts';
 import AddProduct from './Pages/DashBoard/AdminPanel/ManageProducts/AddProduct';
+import MyOrder from './Pages/DashBoard/UserPanel/MyOrders/MyOrder';
+import AddReview from './Pages/DashBoard/UserPanel/Review/AddReview';
+import PaymentProcedure from './Pages/DashBoard/UserPanel/PaymentProcedure/PaymentProcedure';
 
 
 function App() {
@@ -46,20 +49,29 @@ function App() {
           <PrivateRoute path="/payment">
             <Payment></Payment>
           </PrivateRoute>
-          <PrivateRoute path="/dashboard">
+          <PrivateRoute exact path="/dashboard">
             <DashBoard></DashBoard>
           </PrivateRoute>
-          <PrivateRoute path="/makeAdmin">
+          <PrivateRoute path="/dashboard/makeAdmin">
             <MakeAdmin></MakeAdmin>
           </PrivateRoute>
-          <PrivateRoute path="/manageAllOrders">
+          <PrivateRoute path="/dashboard/manageAllOrders">
             <ManageAllOrders></ManageAllOrders>
           </PrivateRoute>
-          <PrivateRoute path="/addProduct">
+          <PrivateRoute path="/dashboard/addProduct">
             <AddProduct></AddProduct>
           </PrivateRoute>
-          <PrivateRoute path="/manageAllProducts">
+          <PrivateRoute path="/dashboard/manageAllProducts">
             <ManageAllProducts></ManageAllProducts>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/myOrders">
+            <MyOrder></MyOrder>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/feedback">
+            <AddReview></AddReview>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard/payment">
+            <PaymentProcedure></PaymentProcedure>
           </PrivateRoute>
           <Route path="/*">
             <NoMatch></NoMatch>

@@ -1,30 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Table } from 'react-bootstrap';
-import SideNav from '../SideNav';
-import ManageAll from './ManageAll';
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../../../Hooks/useAuth';
+import UserSideNav from '../UserSideNav/UserSideNav';
+import MySingleOrder from './MySingleOrder';
 
-const ManageAllOrders = () => {
-    
+const MyOrder = () => {
+    const { user } = useAuth();
     const [orders, setOrders] = useState([]);
-    //update order condition
-    const handleUpdate = (updateId) => {
-      fetch(`http://localhost:5000/orders/${updateId}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(orders),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    };
-    //load orders
+    //load my orders
     useEffect(() => {
-      fetch("http://localhost:5000/orders")
+      fetch(`http://localhost:5000/userOrders/${user.email}`)
         .then((res) => res.json())
         .then((data) => setOrders(data));
-    }, [handleUpdate]);
-    //delete orders & update state
+    }, []);
+    //delete my orders & update state
     const handleDelete = (deleteId) => {
       console.log(deleteId);
       fetch(`http://localhost:5000/orders/${deleteId}`, {
@@ -33,6 +23,7 @@ const ManageAllOrders = () => {
         .then((res) => res.json())
         .then((data) => {
           alert("Are you sure to delete order");
+          console.log(data);
           const remainingOrders = orders.filter(
             (order) => order._id !== deleteId
           );
@@ -42,19 +33,13 @@ const ManageAllOrders = () => {
     return (
       <Row className="w-100 g-0">
         <Col md="2" style={{ backgroundColor: "#212529" }}>
-          <SideNav></SideNav>
+          <UserSideNav></UserSideNav>
         </Col>
         <Col>
-          <div className="admin-bg">
-            <h1 className="text-center text-light py-3">
-              Manage Your All Customers Order
-            </h1>
+          <div className="admin-bg text-center">
             <Container>
-              <h3 className="text-center text-warning">
-                Total Products:{orders.length}
-              </h3>
               <div className="py-5">
-                <Table striped bordered hover responsive="lg" variant="dark">
+                <Table striped bordered hover responsive="lg" variant='light'>
                   <thead>
                     <tr>
                       <th>Name</th>
@@ -66,12 +51,11 @@ const ManageAllOrders = () => {
                   </thead>
                   <tbody>
                     {orders.map((order) => (
-                      <ManageAll
+                      <MySingleOrder
                         order={order}
                         key={order._id}
                         delete={() => handleDelete(order._id)}
-                        update={() => handleUpdate(order._id)}
-                      ></ManageAll>
+                      ></MySingleOrder>
                     ))}
                   </tbody>
                 </Table>
@@ -83,4 +67,4 @@ const ManageAllOrders = () => {
     );
 };
 
-export default ManageAllOrders;
+export default MyOrder;

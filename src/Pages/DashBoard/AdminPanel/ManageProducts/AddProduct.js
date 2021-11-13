@@ -8,13 +8,15 @@ import SideNav from '../SideNav';
 const AddProduct = () => {
 
     const {
-      register,
-      handleSubmit,
+        register,
+        handleSubmit,
+        reset,
       formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
       axios.post("http://localhost:5000/products", data).then((res) => {
-        alert("Your Product Added");
+          alert("Your Product Added");
+          reset();
       });
     };
     return (
