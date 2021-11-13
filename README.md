@@ -11,4 +11,4 @@
 - We provide premium quality product all over the world .
 - Our full service controlled by our smart technology.
 - We are very much responsible for after sells service.
-- Our Expert Team always ready to support u.
+- Our Expert Team always ready to support you.
