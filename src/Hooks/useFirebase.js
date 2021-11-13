@@ -103,6 +103,7 @@ const useFirebase = () => {
     loginWithEmailPassword,
     logOut,
     setError,
+    setIsLoading,
   };
 };
 

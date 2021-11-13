@@ -1,10 +1,23 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../../Hooks/useAuth';
 
 const UserSideNav = () => {
+    const { logOut } = useAuth();
     return (
       <>
+        <NavLink to="/" className="text-decoration-none fw-normal text-white">
+          
+            <img
+              src="https://i.ibb.co/J5kQ0WD/Logo-2.png"
+              width="45"
+              className="mx-2"
+              alt=""
+            />
+            Drone Galaxy
+          
+        </NavLink>
         <h3 className="text-center text-warning pt-2 pb-2 my-4 px-2 fw-normal">
           User Panel
         </h3>
@@ -23,7 +36,7 @@ const UserSideNav = () => {
                   to="/dashboard/feedback"
                   className="text-decoration-none fw-normal my-3 text-light border-bottom"
                 >
-                 Add a FeedBack
+                  Add a FeedBack
                 </NavLink>
                 <NavLink
                   to="/dashboard/payment"
@@ -31,7 +44,17 @@ const UserSideNav = () => {
                 >
                   Payment Procedure
                 </NavLink>
-                
+                <NavLink to="/home">
+                  <button className="btn btn-primary">Back To HomePage</button>
+                </NavLink>
+                <NavLink to="/">
+                  <button
+                    className="btn btn-warning mx-1 my-3"
+                    onClick={logOut}
+                  >
+                    <i className="fas fa-sign-in-alt"></i> Log Out
+                  </button>
+                </NavLink>
               </Nav>
             </Navbar.Collapse>
           </Container>

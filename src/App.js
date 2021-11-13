@@ -26,28 +26,42 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Header></Header>
+       
         <Switch>
           <Route exact path="/">
+            <Header></Header>
             <Home></Home>
+            <Footer></Footer>
           </Route>
           <Route path="/home">
+            <Header></Header>
             <Home></Home>
+            <Footer></Footer>
           </Route>
           <Route path="/login">
+            <Header></Header>
             <Login></Login>
+            <Footer></Footer>
           </Route>
           <Route path="/register">
+            <Header></Header>
             <Register></Register>
+            <Footer></Footer>
           </Route>
           <Route path="/explore">
+            <Header></Header>
             <Explore></Explore>
+            <Footer></Footer>
           </Route>
           <PrivateRoute path="/purchases/:productId">
+            <Header></Header>
             <Purchase></Purchase>
+            <Footer></Footer>
           </PrivateRoute>
           <PrivateRoute path="/payment">
+            <Header></Header>
             <Payment></Payment>
+            <Footer></Footer>
           </PrivateRoute>
           <PrivateRoute exact path="/dashboard">
             <DashBoard></DashBoard>
@@ -77,7 +91,7 @@ function App() {
             <NoMatch></NoMatch>
           </Route>
         </Switch>
-        <Footer></Footer>
+        
       </BrowserRouter>
     </AuthProvider>
   );
