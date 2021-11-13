@@ -7,7 +7,7 @@ const MakeAdmin = () => {
   const [users, setUsers] = useState([]);
   //update order condition
   const handleUpdate = (emailId) => {
-    fetch(`http://localhost:5000/users/${emailId}`, {
+    fetch(`https://radiant-savannah-67340.herokuapp.com/users/${emailId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -19,7 +19,7 @@ const MakeAdmin = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://radiant-savannah-67340.herokuapp.com/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
@@ -27,11 +27,13 @@ const MakeAdmin = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
     handleUpdate(data.email);
+    alert('Made A Admin done');
+    reset();
   };
 
   return (
@@ -57,7 +59,7 @@ const MakeAdmin = () => {
                 type="submit"
                 readOnly
                 value="Create Admin"
-                className="px-5 py-2 fw-bold btn btn-primary "
+                className="px-5 py-2 fw-bold btn btn-primary my-2"
               />
             </form>
           </div>

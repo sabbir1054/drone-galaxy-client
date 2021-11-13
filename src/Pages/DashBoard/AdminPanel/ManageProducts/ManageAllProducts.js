@@ -9,16 +9,19 @@ const ManageAllProducts = () => {
  
     //load orders
     useEffect(() => {
-      fetch("http://localhost:5000/products")
+      fetch("https://radiant-savannah-67340.herokuapp.com/products")
         .then((res) => res.json())
         .then((data) => setProducts(data));
     }, []);
     //delete orders & update state
     const handleDelete = (deleteId) => {
       console.log(deleteId);
-      fetch(`http://localhost:5000/products/${deleteId}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://radiant-savannah-67340.herokuapp.com/products/${deleteId}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           alert("Are you sure to delete product");
@@ -47,7 +50,7 @@ const ManageAllProducts = () => {
                       <th>Product Id</th>
                       <th>Products Name</th>
                       <th>Price</th>
-                      <th>Manage Order</th>
+                      <th>Delete Product</th>
                     </tr>
                   </thead>
                   <tbody>

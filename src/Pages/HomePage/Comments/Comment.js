@@ -6,7 +6,7 @@ const Comment = (props) => {
   const { name, rating, Comments } = props.comment;
   return (
     <Col>
-      <Card varient="light">
+      <Card variant="light">
         <Card.Header>
           <h5 className="text-primary">
             <i className="fas fa-user me-3"></i>

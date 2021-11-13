@@ -8,7 +8,7 @@ const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
     //update order condition
     const handleUpdate = (updateId) => {
-      fetch(`http://localhost:5000/orders/${updateId}`, {
+      fetch(`https://radiant-savannah-67340.herokuapp.com/orders/${updateId}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -20,14 +20,14 @@ const ManageAllOrders = () => {
     };
     //load orders
     useEffect(() => {
-      fetch("http://localhost:5000/orders")
+      fetch("https://radiant-savannah-67340.herokuapp.com/orders")
         .then((res) => res.json())
         .then((data) => setOrders(data));
     }, [handleUpdate]);
     //delete orders & update state
     const handleDelete = (deleteId) => {
       console.log(deleteId);
-      fetch(`http://localhost:5000/orders/${deleteId}`, {
+      fetch(`https://radiant-savannah-67340.herokuapp.com/orders/${deleteId}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -51,7 +51,7 @@ const ManageAllOrders = () => {
             </h1>
             <Container>
               <h3 className="text-center text-warning">
-                Total Products:{orders.length}
+                Total Orders:{orders.length}
               </h3>
               <div className="py-5">
                 <Table striped bordered hover responsive="lg" variant="dark">

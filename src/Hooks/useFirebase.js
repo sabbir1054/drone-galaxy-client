@@ -1,4 +1,4 @@
-
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -8,39 +8,31 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-
 import AuthInitialization from "../Firebase/AuthInit";
-import axios from "axios";
 
 AuthInitialization();
 
 const useFirebase = () => {
-  
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
 
   const auth = getAuth();
 
-    
-    
   //register new user
   const registerNewUser = (name, email, password, role) => {
-    
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
         setUser(user);
-       updateProfile(auth.currentUser, {
+        updateProfile(auth.currentUser, {
           displayName: name,
         }).then(() => {
-          
           // Profile updated!
 
           //save user in database
           saveUser(email, name);
-          
         });
       })
       .catch((error) => {
@@ -50,22 +42,20 @@ const useFirebase = () => {
         setIsLoading(false);
       });
   };
-//saveUser database
+  //saveUser database
   const saveUser = (email, displayName) => {
-  
     const user = { email, displayName };
-    
-  axios
-    .post("http://localhost:5000/users", user)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+
+    axios
+      .post("https://radiant-savannah-67340.herokuapp.com/users", user)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
-    
-    
+
   //Login with email and password
   const loginWithEmailPassword = (email, password) => {
     setIsLoading(true);

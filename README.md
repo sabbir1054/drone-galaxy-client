@@ -1,9 +1,9 @@
 # Drone Galaxy
 
 ### Description:
+-Drone Galaxy technology empowers us to see the future of possible. Learn about our consumer drones like DJI Air 2S, DJI FPV, Mavic, and Phantom.
 
-
-## Live Link:[Drone Galaxy]()
+## Live Link:[Drone Galaxy](https://drone-galaxy-muhammad.web.app/)
 
 ## Feature
 

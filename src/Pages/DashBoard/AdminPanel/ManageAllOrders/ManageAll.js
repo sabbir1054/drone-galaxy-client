@@ -15,6 +15,7 @@ const ManageAll = (props) => {
       </td>
       <td>
         <button className="btn btn-danger" onClick={props.delete}>
+          <i className="fas fa-trash-alt mx-2"></i>
           Cancel
         </button>
       </td>

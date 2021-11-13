@@ -11,15 +11,18 @@ const AddReview = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   //post a order
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/comments", data).then((res) => {
-      alert("Your FeedBack Added");
-     
-    });
+    axios
+      .post("https://radiant-savannah-67340.herokuapp.com/comments", data)
+      .then((res) => {
+        alert("Your FeedBack Added");
+        reset();
+      });
   };
   return (
     <Row className="w-100 g-0">

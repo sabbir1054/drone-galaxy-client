@@ -14,10 +14,12 @@ const AddProduct = () => {
       formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
-      axios.post("http://localhost:5000/products", data).then((res) => {
+      axios
+        .post("https://radiant-savannah-67340.herokuapp.com/products", data)
+        .then((res) => {
           alert("Your Product Added");
           reset();
-      });
+        });
     };
     return (
       <Row className="w-100 g-0">

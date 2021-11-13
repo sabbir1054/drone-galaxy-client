@@ -11,6 +11,7 @@ const MySingleOrder = (props) => {
         <td className="fs-3 fw-bold text-primary">{condition}</td>
         <td>
           <button className="btn btn-danger" onClick={props.delete}>
+            <i className="fas fa-trash-alt mx-2"></i>
             Cancel Order
           </button>
         </td>

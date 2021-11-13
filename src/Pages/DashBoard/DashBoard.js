@@ -7,7 +7,7 @@ const DashBoard = () => {
   const [filteredUser, setFilteredUser] = useState(false);
   const { user } = useAuth();
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://radiant-savannah-67340.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => userFilter(data.role));
   }, []);

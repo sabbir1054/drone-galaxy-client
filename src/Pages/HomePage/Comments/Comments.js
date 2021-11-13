@@ -4,7 +4,7 @@ import Comment from './Comment'
 const Comments = () => {
   const [comments, setComments] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/comments")
+    fetch("https://radiant-savannah-67340.herokuapp.com/comments")
       .then((res) => res.json())
       .then((data) => setComments(data));
   }, []);

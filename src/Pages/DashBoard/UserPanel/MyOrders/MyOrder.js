@@ -10,14 +10,16 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     //load my orders
     useEffect(() => {
-      fetch(`http://localhost:5000/userOrders/${user.email}`)
+      fetch(
+        `https://radiant-savannah-67340.herokuapp.com/userOrders/${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => setOrders(data));
     }, []);
     //delete my orders & update state
     const handleDelete = (deleteId) => {
       console.log(deleteId);
-      fetch(`http://localhost:5000/orders/${deleteId}`, {
+      fetch(`https://radiant-savannah-67340.herokuapp.com/orders/${deleteId}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

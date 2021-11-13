@@ -13,7 +13,7 @@ const Purchase = () => {
     const history = useHistory();
     //get selected product
   useEffect(() => {
-    fetch(`http://localhost:5000/purchases/${productId}`)
+    fetch(`https://radiant-savannah-67340.herokuapp.com/purchases/${productId}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
@@ -28,10 +28,12 @@ const {
     //post a order
 const onSubmit = (data) => {
   data.condition = "pending";
-  axios.post("http://localhost:5000/orders", data).then((res) => {
-    alert("Your Order placed");
-    history.push("/payment");
-  });
+  axios
+    .post("https://radiant-savannah-67340.herokuapp.com/orders", data)
+    .then((res) => {
+      alert("Your Order placed");
+      history.push("/payment");
+    });
 };
   return (
     <div>

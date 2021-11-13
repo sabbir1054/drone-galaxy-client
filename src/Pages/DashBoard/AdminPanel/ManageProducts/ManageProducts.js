@@ -9,7 +9,8 @@ const ManageProducts = (props) => {
         <td>{price}</td>
         <td>
           <button className="btn btn-danger" onClick={props.delete}>
-            Cancel
+            <i className="fas fa-trash-alt mx-2"></i>
+            Delete
           </button>
         </td>
       </tr>
